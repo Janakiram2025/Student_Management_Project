@@ -1,0 +1,68 @@
+{% extends 'Student_App/base.html' %}
+
+{% block title %}Teacher Sign Up{% endblock %}
+
+{% block content %}
+<style>
+  .signup-form {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .signup-form h2 {
+    color: #0d47a1;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  }
+
+  .form-label {
+    font-weight: 500;
+    color: #333;
+  }
+
+  .btn-signup {
+    margin-top: 20px;
+  }
+
+  .back-home {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .back-home a {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .back-home a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="signup-form">
+  <h2>Teacher Sign Up Form</h2>
+  <form method="post" novalidate>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary btn-lg btn-signup">Create Account</button>
+  </div>
+</form>
+
+
+  <!-- Back Link -->
+  <div class="back-home">
+    <a href="{% url 'signup-select' %}">← Back to Sign-Up Selection</a>
+  </div>
+</div>
+{% endblock %}

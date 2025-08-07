@@ -1,0 +1,106 @@
+{% extends 'Student_App/base.html' %}
+
+{% block title %}Select User Type - Sign Up{% endblock %}
+
+{% block content %}
+<style>
+  .select-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 900px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+  }
+
+  .option-box {
+    flex: 1 1 300px;
+    margin: 20px;
+    text-align: center;
+    padding: 40px 20px;
+    border: 3px solid #dee2e6;
+    border-radius: 12px;
+    background-color: #fdfdfd;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .option-box:hover {
+    transform: scale(1.05);
+    border-color: #0d6efd;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
+  }
+
+  .option-box h3 {
+    color: #0d47a1;
+    margin-bottom: 15px;
+  }
+
+  .option-box p {
+    color: #444;
+  }
+
+  .btn-select {
+    margin-top: 20px;
+  }
+
+  .back-home {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .back-home a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: 2px solid #0d6efd;
+    color: #0d6efd;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .back-home a:hover {
+    background-color: #0d6efd;
+    color: white;
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .select-container {
+      flex-direction: column;
+      padding: 30px 20px;
+    }
+
+    .option-box {
+      margin: 15px 0;
+    }
+  }
+</style>
+
+<!-- Sign-up Options -->
+<div class="select-container">
+  <div class="option-box">
+    <h3>Student Sign Up</h3>
+    <p>Create your student account to track marks, attendance, and more.</p>
+    <a href="{% url 'signup-student' %}" class="btn btn-outline-primary btn-select">Sign Up as Student</a>
+  </div>
+
+  <div class="option-box">
+    <h3>Teacher Sign Up</h3>
+    <p>Register as a teacher to manage classes, results, and student records.</p>
+    <a href="{% url 'signup-teacher' %}" class="btn btn-outline-success btn-select">Sign Up as Teacher</a>
+  </div>
+</div>
+
+<!-- Back to Home -->
+<div class="back-home">
+  <a href="{% url 'home' %}"><i class="bi bi-arrow-left"></i> ← Back to Home</a>
+</div>
+{% endblock %}

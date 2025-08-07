@@ -1,0 +1,51 @@
+{% extends 'Student_App/base.html' %}
+{% block title %}Teacher Login{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="bg-white p-4 shadow rounded" style="max-width: 500px; margin: auto;">
+    <h2 class="text-center text-success mb-4">Teacher Login</h2>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-danger">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_email" class="form-label">Email</label>
+        {{ form.email }}
+        {% if form.email.errors %}
+          <div class="text-danger small">{{ form.email.errors|striptags }}</div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_phone" class="form-label">Phone Number</label>
+        {{ form.phone }}
+        {% if form.phone.errors %}
+          <div class="text-danger small">{{ form.phone.errors|striptags }}</div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        <label for="id_password" class="form-label">Password</label>
+        {{ form.password }}
+        {% if form.password.errors %}
+          <div class="text-danger small">{{ form.password.errors|striptags }}</div>
+        {% endif %}
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-success">Login</button>
+      </div>
+    </form>
+
+    <div class="text-center mt-3">
+      <a href="{% url 'signup-teacher' %}" class="text-decoration-none text-success">Don't have an account? Sign Up</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

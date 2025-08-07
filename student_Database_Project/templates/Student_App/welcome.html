@@ -1,0 +1,56 @@
+{% extends 'Student_App/base.html' %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<style>
+  .welcome-container {
+    margin-top: 100px;
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(to right, #f0f9ff, #e0ffe0);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .welcome-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0d47a1;
+    text-shadow: 1px 1px 2px #ccc;
+  }
+
+  .role-highlight {
+    color: #388e3c;
+    font-weight: bold;
+  }
+
+  .home-btn {
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    margin-top: 30px;
+  }
+
+  .welcome-msg {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #555;
+  }
+
+  .home-btn:hover {
+    background-color: #1565c0;
+    color: #fff;
+    transform: scale(1.05);
+    transition: 0.3s ease;
+  }
+</style>
+
+<div class="container welcome-container">
+  <h1 class="welcome-heading">Welcome, {{ name }}! 🎉</h1>
+  <p class="welcome-msg">
+    You have successfully registered as a <span class="role-highlight">{{ user_type }}</span>.
+  </p>
+
+  <a href="{% url 'home' %}" class="btn btn-outline-primary home-btn">Go to Home Page</a>
+</div>
+{% endblock %}
